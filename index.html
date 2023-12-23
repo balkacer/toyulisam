@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosita bonita :3</title>
+  <style>
+  * {
+    user-select: none;
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  #propuesta {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  button {
+    padding: 20px 40px;
+    border-radius: 20px;
+    font-size: 40px;
+    border: 0;
+    cursor: pointer;
+  }
+
+  #btn_yes {
+    background-color: blueviolet;
+  }
+
+  #btn_no {
+    background-color: brown;
+    position: relative;
+  }
+
+  #btn_container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 720px;
+    justify-content: space-between;
+    padding: 40px;
+    gap: 1rem;
+  }
+  </style>
+</head>
+<body>
+  <span id="propuesta">¿Quieres ser la mami de Linda? </span>
+  <div id="btn_container">
+    <button id="btn_yes">Si 😊</button>
+    <button id="btn_no">No 😞</button>
+  </div>
+</body>
+<script>
+    function getRandomArbitrary(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    let w = document.body.getBoundingClientRect().width;
+    let h = document.body.getBoundingClientRect().height;
+
+    const btn = document.getElementById("btn_no")
+    const initialTop = btn.getBoundingClientRect().top - h + 19;
+    const initialRight = btn.getBoundingClientRect().right - w;
+    const initialBottom = btn.getBoundingClientRect().bottom - h;
+    const initialLeft = btn.getBoundingClientRect().left - w - 241;
+
+    btn.addEventListener('mouseenter', function (ev) {
+      btn.style.right = `${getRandomArbitrary(-initialLeft, initialRight)}px`
+      btn.style.bottom = `${getRandomArbitrary(-initialTop, initialBottom)}px`
+
+      console.log({ top: btn.style.top, right: btn.style.right });
+    })
+</script>
+</html>
