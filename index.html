@@ -26,17 +26,26 @@
     overflow: hidden;
   }
 
+  body {
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+  }
+
   #propuesta {
     font-size: 4rem;
     text-align: center;
+    text-shadow: 5px 5px #000000;
   }
 
-  button {
+  a {
     padding: 20px 40px;
     border-radius: 20px;
     font-size: 40px;
     border: 0;
     cursor: pointer;
+    text-decoration: none;
   }
 
   #btn_yes {
@@ -62,8 +71,12 @@
 <body>
   <span id="propuesta">¿Quieres ser la mami de Linda? </span>
   <div id="btn_container">
-    <button id="btn_yes">Si 😊</button>
-    <button id="btn_no">No 😞</button>
+    <a id="btn_yes" href="said_yes.html">
+      <span>Si 😊</span>
+    </a>
+    <a id="btn_no">
+      <span>No 😞</span>
+    </a>
   </div>
 </body>
 <script>
@@ -75,6 +88,7 @@
     let h = document.body.getBoundingClientRect().height;
 
     const btn = document.getElementById("btn_no")
+
     const initialTop = btn.getBoundingClientRect().top - h + 19;
     const initialRight = btn.getBoundingClientRect().right - w;
     const initialBottom = btn.getBoundingClientRect().bottom - h;
