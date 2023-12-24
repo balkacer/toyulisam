@@ -16,7 +16,6 @@
   html, body {
     padding: 0;
     margin: 0;
-    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,17 +23,55 @@
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    position: relative;
   }
 
-  body {
-    background-image: url("bg.jpg");
+  #title {
+    font-size: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-shadow: 5px 5px #000000;
+  }
+
+  #bg {
+    background-image: url("bg_2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-origin: border-box;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    position: absolute;
+    filter: grayscale(100%);
+    z-index: -9000;
+  }
+
+  #container {
+    backdrop-filter: blur(10px);
+    width: 90vw;
+    max-width: 1000px;
+    background-color: rgba(137, 43, 226, 0.226);
+    padding: 40px;
+    border-radius: 40px;
+    position: relative;
+  }
+
+  #disclaimer {
+    position: absolute;
+    left: 0;
+    bottom: -50px;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 16px;
   }
   </style>
 </head>
 <body>
-
+  <div id="bg"></div>
+  <div id="container">
+    <span id="title">¡Gracias por confiar en nuestro servicio!</span>
+    <span id="disclaimer">
+      Advertencia: esta suscripción tiene un tiempo prologado indefinido, recomendamos querer bonito y cuidar de su servidor a la vez que el cuida y protege su niña interior.
+    </span>
+  </div>
 </body>
 </html>

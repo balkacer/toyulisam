@@ -30,13 +30,23 @@
     background-image: url("bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-origin: border-box;
+    background-position: center;
+    gap: 40px;
   }
 
-  #propuesta {
-    font-size: 4rem;
+  .title {
+    font-size: 70px;
     text-align: center;
     text-shadow: 5px 5px #000000;
+  }
+
+  .text {
+    text-align: center;
+    padding: 40px;
+    font-size: 40px;
+    max-width: 900px;
+    border-radius: 40px;
+    background-color: #000000;
   }
 
   a {
@@ -48,6 +58,14 @@
     text-decoration: none;
   }
 
+  #benefits {
+    padding: 8px 20px;
+    color: bisque;
+    background-color: burlywood;
+    text-align: center;
+    min-width: min-content;
+  }
+
   #btn_yes {
     background-color: blueviolet;
   }
@@ -55,6 +73,7 @@
   #btn_no {
     background-color: brown;
     position: relative;
+    z-index: 900000;
   }
 
   #btn_container {
@@ -69,13 +88,15 @@
   </style>
 </head>
 <body>
-  <span id="propuesta">¿Quieres ser la mami de Linda? </span>
+  <span class="title">¡Oferta limitada!</span>
+  <span class="text">¿Te gustaría ser mi novia? Con beneficios que incluyen compañía, risas, momentos increíbles entre otros.</span>
+  <a id="benefits" href="benefits.html">Haz click aquí para ver todos los beneficios</a>
   <div id="btn_container">
     <a id="btn_yes" href="said_yes.html">
-      <span>Si 😊</span>
+      <span>Aceptar 😊</span>
     </a>
     <a id="btn_no">
-      <span>No 😞</span>
+      <span>Denegar 😞</span>
     </a>
   </div>
 </body>
@@ -89,16 +110,16 @@
 
     const btn = document.getElementById("btn_no")
 
-    const initialTop = btn.getBoundingClientRect().top - h + 19;
+    const initialTop = btn.getBoundingClientRect().top - h - 365;
     const initialRight = btn.getBoundingClientRect().right - w;
-    const initialBottom = btn.getBoundingClientRect().bottom - h;
-    const initialLeft = btn.getBoundingClientRect().left - w - 241;
+    const initialBottom = btn.getBoundingClientRect().bottom - h - 20;
+    const initialLeft = btn.getBoundingClientRect().left - w - 30;
 
     btn.addEventListener('mouseenter', function (ev) {
+      // btn.style.right = `${initialRight}px`
+      // btn.style.bottom = `${initialBottom}px`
       btn.style.right = `${getRandomArbitrary(-initialLeft, initialRight)}px`
       btn.style.bottom = `${getRandomArbitrary(-initialTop, initialBottom)}px`
-
-      console.log({ top: btn.style.top, right: btn.style.right });
     })
 </script>
 </html>
